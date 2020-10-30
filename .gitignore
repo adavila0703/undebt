@@ -126,3 +126,4 @@ dmypy.json
 *.db
 data.db
 data.db
+.idea
