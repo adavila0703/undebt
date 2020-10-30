@@ -10,6 +10,7 @@ days_order = True
 
 @app.route('/')
 def home():
+    """Returns home page"""
     data = sqlite3.connect('data.db')
     cursor = data.cursor()
     cursor2 = data.cursor()
@@ -34,6 +35,7 @@ def home():
 
 @app.route('/data')
 def grab_all_data():
+    """Function to grab all data by calling chrome driver from utils.driver.py"""
     d.express()
     d.wells_fargo()
     d.macys()
@@ -49,6 +51,7 @@ def grab_all_data():
 
 @app.route('/test/<int:num>')
 def testing(num):
+    """Calls individual functions to pull data"""
     if num == 1:
         d.clothes_store()
     elif num == 2:
@@ -84,6 +87,7 @@ def testing(num):
 
 @app.route('/orderbalance')
 def order_balance():
+    """Used to sort balance"""
     global balance_order
     data = sqlite3.connect('data.db')
     cursor = data.cursor()
@@ -117,6 +121,7 @@ def order_balance():
 
 @app.route('/orderpayment')
 def order_payment():
+    """Used to sort min payment"""
     global payment_order
     data = sqlite3.connect('data.db')
     cursor = data.cursor()
@@ -149,6 +154,7 @@ def order_payment():
 
 @app.route('/orderdays')
 def order_days():
+    """Used to sort days"""
     global days_order
     data = sqlite3.connect('data.db')
     cursor = data.cursor()

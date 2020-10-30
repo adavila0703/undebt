@@ -9,11 +9,13 @@ from datetime import datetime
 
 
 def no_space(name):
+    """Eliminates the spacing and adds a '.' to element paths"""
     new_str = name.replace(' ', '.')
     return new_str
 
 
 def real_key(driver, str_in):
+    """Function to simulate keystrokes with random intervals, mainly to trick bot detection"""
     for s in str_in:
         driver.send_keys(s)
         time.sleep(random.uniform(0.005, 0.1))
@@ -21,10 +23,13 @@ def real_key(driver, str_in):
 
 
 def random_sleep():
+    """Used to simulate a random pause time"""
     time.sleep(random.uniform(0.8, 1.5))
+    return None
 
 
 def date_fix(date):
+    """Returns a consistent date format from any type of format input"""
     newdate = dateutil.parser.parse(date)
     date_object = datetime.strptime(str(newdate), '%Y-%m-%d  %H:%M:%S')
     date_out = date_object.strftime('%m-%d-%Y')
@@ -32,6 +37,7 @@ def date_fix(date):
 
 
 def day_calc(date):
+    """Calculates days between dates"""
     newdate = dateutil.parser.parse(date)
     date_object = datetime.strptime(str(newdate), '%Y-%m-%d  %H:%M:%S')
     days = date_object - datetime.now()
@@ -39,6 +45,7 @@ def day_calc(date):
 
 
 def my_cc():
+    """Scrapes my_cc data"""
     login_info = sqlite3.connect('data.db')
     cursor = login_info.cursor()
 
@@ -113,6 +120,7 @@ def my_cc():
 
 
 def american_airlines():
+    """Scrapes american airlines data"""
     login_info = sqlite3.connect('data.db')
     cursor = login_info.cursor()
 
@@ -166,6 +174,7 @@ def american_airlines():
 
 
 def chase():
+    """Scrapes chase data"""
     options = webdriver.ChromeOptions()
     # options.add_argument('--ignore-certificate-errors')
     # options.add_argument('--headless')
@@ -204,6 +213,7 @@ def chase():
 
 
 def fire_stone():
+    """Scrapes firestone data"""
     login_info = sqlite3.connect('data.db')
     cursor = login_info.cursor()
 
@@ -283,6 +293,7 @@ def fire_stone():
 
 
 def best_buy():
+    """Scrapes best buy data"""
     login_info = sqlite3.connect('data.db')
     cursor = login_info.cursor()
 
@@ -352,6 +363,7 @@ def best_buy():
 
 
 def wells_fargo():
+    """Scrapes wells fargo data"""
     login_info = sqlite3.connect('data.db')
     cursor = login_info.cursor()
 
@@ -404,6 +416,7 @@ def wells_fargo():
 
 
 def paypal():
+    """Scrapes paypal data"""
     login_info = sqlite3.connect('data.db')
     cursor = login_info.cursor()
 
@@ -470,6 +483,7 @@ def paypal():
 
 
 def express():
+    """Scrapes express data"""
     login_info = sqlite3.connect('data.db')
     cursor = login_info.cursor()
 
@@ -536,6 +550,7 @@ def express():
 
 
 def book_store():
+    """Scrapes book store data"""
     login_info = sqlite3.connect('data.db')
     cursor = login_info.cursor()
 
@@ -596,6 +611,7 @@ def book_store():
 
 
 def macys():
+    """Scrapes macys data"""
     login_info = sqlite3.connect('data.db')
     cursor = login_info.cursor()
 
@@ -662,6 +678,7 @@ def macys():
 
 
 def clothes_store():
+    """Scrapes clothes store data"""
     login_info = sqlite3.connect('data.db')
     cursor = login_info.cursor()
 
@@ -712,6 +729,7 @@ def clothes_store():
 
 
 def grocery_store():
+    """Scrapes grocery store data"""
     login_info = sqlite3.connect('data.db')
     cursor = login_info.cursor()
 
