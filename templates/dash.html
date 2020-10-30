@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<div class="container">
+    <div align="center">
+        <h1><b>UnDebt</b></h1>
+    </div>
+
+<form action="/data">
+    <button type="submit">Pull All Data</button>
+</form>
+
+
+<table class="table">
+    <tr>
+        <th><h4>Account</h4></th>
+        <th><a href="/orderbalance"><h4>Balance</h4></a></th>
+        <th><a href="/orderpayment"><h4>Min. Payment</h4></a></th>
+        <th><h4>Due Date</h4></th>
+        <th><a href="/orderdays"><h4>Days Left</h4></a></th>
+        <th><h4>Pull Data</h4></th>
+        <th><h4>Last Updated</h4></th>
+    </tr>
+    {% for d in data %}
+    <tr>
+        <th>{{d[1]}}</th>
+        <th>${{d[2]}}</th>
+        <th>${{d[3]}}</th>
+        <th>{{d[4]}}</th>
+        <th>{{d[6]}}</th>
+        <th>
+            <form action="/test/{{d[0]}}">
+                <button type="submit">Pull Data</button>
+            </form>
+        </th>
+        <th>{{d[5]}}</th>
+    </tr>
+    {% endfor %}
+</table>
+<table class="table">
+    <tr>
+        <th>Total</th>
+        <th>Balance</th>
+        <th>Min. Payment</th>
+    </tr>
+    {% for t in total %}
+    <tr>
+        <th></th>
+        <th>${{t[2]}}</th>
+        <th>${{t[3]}}</th>
+        <th>{{t[4]}}</th>
+        <th>{{t[5]}}</th>
+        <th>{{t[6]}}</th>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+</body>
+</html>
